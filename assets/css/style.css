@@ -1,0 +1,180 @@
+/**
+ * Base styling for the Divi TOC module.
+ * The presets are implemented using utility classes to keep the markup clean.
+ */
+
+.divi-toc-nav {
+  position: relative;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.divi-toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.divi-toc-toggle {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.divi-toc-body {
+  transition: max-height 0.3s ease;
+}
+
+.divi-toc-collapsed .divi-toc-body {
+  display: none;
+}
+
+.divi-toc-list,
+.divi-toc-sub-list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.divi-toc-item {
+  list-style: inherit;
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.divi-toc-link {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.divi-toc-copy,
+.divi-toc-sub-toggle,
+.divi-toc-back-top {
+  font-size: 0.75rem;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+}
+
+.divi-toc-active > .divi-toc-link {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Style presets */
+.divi-toc-preset-simple .divi-toc-list {
+  list-style: disc;
+}
+
+.divi-toc-preset-numbered .divi-toc-list {
+  list-style: decimal;
+}
+
+.divi-toc-preset-tree .divi-toc-list,
+.divi-toc-preset-tree .divi-toc-sub-list {
+  list-style: none;
+  padding-left: 0.75rem;
+  border-left: 2px solid #e5e5e5;
+}
+
+.divi-toc-preset-card {
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.divi-toc-preset-accordion .divi-toc-body {
+  border-top: 1px solid #e1e1e1;
+}
+
+.divi-toc-preset-floating {
+  position: sticky;
+  top: 1rem;
+}
+
+.divi-toc-preset-boxed {
+  background: #f8f9fa;
+  border: 1px solid #e1e1e1;
+}
+
+.divi-toc-preset-raw .divi-toc-nav,
+.divi-toc-preset-raw .divi-toc-list {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.divi-toc-mobile-dropdown .divi-toc-dropdown {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+}
+
+.divi-toc-back-top.floating {
+  position: fixed;
+  z-index: 999;
+  padding: 0.5rem 0.75rem;
+}
+
+.divi-toc-back-top.bottom-right { bottom: 1rem; right: 1rem; }
+.divi-toc-back-top.bottom-left { bottom: 1rem; left: 1rem; }
+.divi-toc-back-top.top-right { top: 1rem; right: 1rem; }
+.divi-toc-back-top.top-left { top: 1rem; left: 1rem; }
+
+.divi-toc-hide-mobile { display: block; }
+@media (max-width: 767px) {
+  .divi-toc-hide-mobile { display: none; }
+}
+
+.divi-toc-hide-tablet { display: block; }
+@media (max-width: 980px) {
+  .divi-toc-hide-tablet { display: none; }
+}
+
+.divi-toc-sticky-desktop { position: sticky; top: 1rem; }
+@media (max-width: 980px) {
+  .divi-toc-sticky-desktop { position: static; }
+}
+
+@media (max-width: 980px) and (min-width: 768px) {
+  .divi-toc-sticky-tablet { position: sticky; top: 1rem; }
+}
+
+@media (max-width: 767px) {
+  .divi-toc-sticky-mobile { position: sticky; top: 1rem; }
+}
+
+.divi-toc-message {
+  margin-top: 0.5rem;
+  color: #777;
+}
+
+/* Active item customizations pulled from design settings */
+.divi-toc-nav .divi-toc-active {
+  --divi-toc-active-color: inherit;
+  --divi-toc-active-bg: transparent;
+  --divi-toc-active-border: transparent;
+  --divi-toc-active-border-width: 3px;
+  color: var(--divi-toc-active-color);
+  background: var(--divi-toc-active-bg);
+  border-left: var(--divi-toc-active-border-width) solid var(--divi-toc-active-border);
+  padding-left: 0.4rem;
+}
+
+.divi-toc-active-bold .divi-toc-active > .divi-toc-link {
+  font-weight: 700;
+}
+
+.divi-toc-active-underline .divi-toc-active > .divi-toc-link {
+  text-decoration: underline;
+}

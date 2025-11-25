@@ -1,0 +1,43 @@
+.divi-toc-nav {
+  font-family: inherit;
+  padding: 1rem;
+  &.preset-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  }
+  &.preset-floating {
+    position: sticky;
+    top: 1rem;
+  }
+  ul,
+  ol {
+    margin: 0;
+    padding-left: 1rem;
+  }
+  li {
+    margin: 0.25rem 0;
+    position: relative;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .toc-copy {
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+  .toc-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.divi-toc-builder {
+  border: 1px dashed #ccc;
+  padding: 1rem;
+}
