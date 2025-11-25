@@ -1,0 +1,12 @@
+{
+  "name": "divi5/divi-toc",
+  "description": "Divi 5 Table of Contents module.",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "Divi_toc\\": "modules/"
+    }
+  },
+  "require": {}
+}

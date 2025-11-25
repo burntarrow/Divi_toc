@@ -1,0 +1,35 @@
+export interface TocAttrs {
+  heading_levels?: string[];
+  include_title?: boolean;
+  custom_selector?: string;
+  ignore_classes?: string;
+  minimum_headings?: number;
+  on_empty?: 'hide' | 'message';
+  empty_message?: string;
+  structure?: 'nested' | 'flat';
+  preset?: string;
+  collapsible?: boolean;
+  start_collapsed?: boolean;
+  collapse_children?: boolean;
+  scroll_offset?: number;
+  scrollspy?: boolean;
+  dropdown_mobile?: boolean;
+  hide_mobile?: boolean;
+  hide_tablet?: boolean;
+  sticky_desktop?: boolean;
+  sticky_tablet?: boolean;
+  sticky_mobile?: boolean;
+  back_to_top?: boolean;
+  back_to_top_mode?: 'section' | 'floating';
+  back_to_top_position?: string;
+  list_style?: string;
+  indent?: number;
+  icon_style?: string;
+  active_color?: string;
+  active_background?: string;
+  active_border_color?: string;
+  active_font_weight?: string;
+  active_underline?: boolean;
+  css_id?: string;
+  css_class?: string;
+}
