@@ -1,4 +1,5 @@
 <?php
+
 namespace Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait;
 
 trait ModuleScriptDataTrait {
