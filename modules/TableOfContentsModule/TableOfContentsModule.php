@@ -8,12 +8,21 @@
 
 namespace Divi_toc\Modules\TableOfContentsModule;
 
+defined( 'ABSPATH' ) || exit;
+
+// Manually require trait files (no Composer autoload here).
+require_once __DIR__ . '/TableOfContentsModuleTrait/CustomCssTrait.php';
+require_once __DIR__ . '/TableOfContentsModuleTrait/ModuleClassnamesTrait.php';
+require_once __DIR__ . '/TableOfContentsModuleTrait/ModuleScriptDataTrait.php';
+require_once __DIR__ . '/TableOfContentsModuleTrait/ModuleStylesTrait.php';
+// If you have RenderCallbackTrait and still use it, uncomment this:
+// require_once __DIR__ . '/TableOfContentsModuleTrait/RenderCallbackTrait.php';
+
 use Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait\CustomCssTrait;
 use Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait\ModuleClassnamesTrait;
 use Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait\ModuleScriptDataTrait;
 use Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait\ModuleStylesTrait;
-
-defined( 'ABSPATH' ) || exit;
+// use Divi_toc\Modules\TableOfContentsModule\TableOfContentsModuleTrait\RenderCallbackTrait;
 
 class TableOfContentsModule {
 
@@ -21,6 +30,7 @@ class TableOfContentsModule {
 	use ModuleClassnamesTrait;
 	use ModuleScriptDataTrait;
 	use ModuleStylesTrait;
+	// use RenderCallbackTrait;
 
 	/**
 	 * Module slug – MUST match the slug in your module.json
@@ -53,17 +63,18 @@ class TableOfContentsModule {
 	 * MUST match what you register/enqueue in divi-toc.php.
 	 */
 	public static function get_script_handles() {
-		return [
+		return array(
 			'divi-toc-frontend',
-		];
+		);
 	}
 
 	/**
 	 * Style handles for this module (if any).
+	 * Keep this in sync with divi-toc.php's wp_enqueue_style handle.
 	 */
 	public static function get_style_handles() {
-		return [
+		return array(
 			'divi-toc',
-		];
+		);
 	}
 }
