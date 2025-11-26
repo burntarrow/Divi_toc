@@ -1,7 +1,9 @@
 {
+  "slug": "divi_toc",
   "name": "Divi TOC",
-  "slug": "divi-toc",
-  "description": "Table of Contents module for Divi 5.",
-  "category": "content",
-  "version": "1.0.0"
+  "description": "Generates a table of contents from page headings.",
+  "category": "layout",
+  "supports": {
+    "multipleInstances": false
+  }
 }
