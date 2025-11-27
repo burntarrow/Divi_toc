@@ -17,9 +17,22 @@ npm run build
 npm test
 ```
 
-Build outputs:
+Build outputs (Webpack entry points):
+- `build/index.js` – Extension manifest bundle (exports modules array used by the builder runtime).
 - `build/divi-toc-builder.js` – Divi 5 builder registration bundle.
 - `build/divi-toc-frontend.js` – front-end/runtime behaviors.
-- `assets/css/divi-toc.css` – extracted styles for both builder preview and front-end.
+- `assets/css/index.css` – placeholder stylesheet to satisfy Divi 5 extension asset loading.
+- `assets/css/divi-toc-builder.css` – builder styles extracted from the module SCSS.
+- `assets/css/divi-toc-frontend.css` – front-end styles extracted from the module SCSS.
+
+### Divi 5 wiring
+
+- `divi-toc.php` registers the extension definition via the `divi.modules.extensions` filter and enqueues front-end assets for live pages.
+- `divi-toc-extension.php` mirrors the Divi 5 example extension structure, declaring extension-level builder/front-end assets so the module picker can register the module as soon as the builder iframe loads.
+- `src/index.ts` exports the module list consumed by both builder and runtime; `src/builder.tsx` registers modules using the available Divi 5 (or legacy) APIs when `divi-toc-builder.js` loads.
+
+### Legacy Divi 4 code
+
+Legacy PHP for Divi 4 is archived under `legacy/divi4/class-divi-toc-module.php` and is not loaded by the Divi 5 plugin bootstrap. It can be referenced for historical context but is intentionally separated from the Divi 5 wiring.
 
 > Note: if your environment blocks scoped package downloads, configure npm with an accessible registry before running `npm install`.

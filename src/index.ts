@@ -7,6 +7,7 @@
  */
 
 import TableOfContentsModule from './components/table-of-contents-module';
+import './index.scss';
 
 // Optional named export, handy for tests or tooling.
 export { TableOfContentsModule };
@@ -16,5 +17,10 @@ export { TableOfContentsModule };
 export const modules = [TableOfContentsModule];
 
 export default {
+  metadata: {
+    name: 'Divi TOC',
+    slug: 'divi-toc',
+    version: '1.0.2',
+  },
   modules,
 };

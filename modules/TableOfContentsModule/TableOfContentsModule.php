@@ -72,9 +72,9 @@ class TableOfContentsModule {
 	 * Style handles for this module (if any).
 	 * Keep this in sync with divi-toc.php's wp_enqueue_style handle.
 	 */
-	public static function get_style_handles() {
-		return array(
-			'divi-toc',
-		);
-	}
+        public static function get_style_handles() {
+                return array(
+                        'divi-toc-frontend',
+                );
+        }
 }

@@ -1,6 +1,6 @@
 {
   "name": "divi-toc",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Divi 5 Table of Contents module",
   "main": "index.js",
   "scripts": {

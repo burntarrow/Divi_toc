@@ -1,4 +1,4 @@
-import { ModuleSettingsDefinition } from '../../divi-module-shim';
+import { ModuleSettingsDefinition } from '../../divi-module-types';
 import { TocAttrs } from './types';
 
 const settingsAdvanced: ModuleSettingsDefinition<TocAttrs> = {

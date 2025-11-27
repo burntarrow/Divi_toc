@@ -1,4 +1,4 @@
-import { ModuleStylesFunction } from '../../divi-module-shim';
+import { ModuleStylesFunction } from '../../divi-module-types';
 import { TocAttrs } from './types';
 
 export const Styles: ModuleStylesFunction<TocAttrs> = ({ attrs }) => {

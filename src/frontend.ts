@@ -7,6 +7,9 @@
  *   scrollspy highlighting, collapsible UI, responsive dropdown, and back-to-top.
  */
 
+import './components/table-of-contents-module/style.scss';
+import './components/table-of-contents-module/module.scss';
+
 export type TocHeading = {
   id: string;
   text: string;

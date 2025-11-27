@@ -1,4 +1,4 @@
-import { ModuleCustomCssDefinition } from '../../divi-module-shim';
+import { ModuleCustomCssDefinition } from '../../divi-module-types';
 
 const CustomCSS: ModuleCustomCssDefinition = {
   toc_container: {
