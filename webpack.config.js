@@ -1,62 +1,41 @@
-// webpack.config.js
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = (env, argv) => {
-  const isProd = argv.mode === 'production';
+module.exports = {
+  entry: {
+    // 🔹 Divi 5 extension entry (required so build/index.js exists)
+    index: './src/index.ts',
 
-  return {
-    entry: {
-      // Builder bundle (Divi 5 Visual Builder)
-      'divi-toc-builder': './src/builder.tsx',
+    // 🔹 Visual Builder bundle (used by your module’s React UI)
+    'divi-toc-builder': './src/builder.tsx',
 
-      // Front-end runtime bundle
-      'divi-toc-frontend': './src/frontend.ts',
-    },
-
-    output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: '[name].js',
-      clean: true,
-    },
-
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
-
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/,
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
-        },
-        {
-          test: /\.(svg|png|jpe?g|gif|woff2?|ttf|eot)$/i,
-          type: 'asset/resource',
-          generator: {
-            filename: '../assets/[name][ext]',
-          },
-        },
-      ],
-    },
-
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: '../assets/css/divi-toc.css',
-      }),
+    // 🔹 Front-end runtime (handles scrolling, anchors, etc.)
+    'divi-toc-frontend': './src/frontend.ts',
+  },
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].js', // → index.js, divi-toc-builder.js, divi-toc-frontend.js
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
     ],
-
-    devtool: isProd ? false : 'source-map',
-
-    mode: isProd ? 'production' : 'development',
-  };
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      // This matches your PHP enqueue: assets/css/divi-toc.css
+      filename: '../assets/css/divi-toc.css',
+    }),
+  ],
 };
