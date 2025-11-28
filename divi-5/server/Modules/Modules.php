@@ -12,7 +12,7 @@ namespace Divi_toc\divi-5\Server\Modules;
 
 defined( 'ABSPATH' ) || exit;
 
-use Divi_toc\div-5\Server\Modules\TableOfContents\TableOfContents;
+use Divi_toc\divi-5\Server\Modules\TableOfContents\TableOfContents;
 
 class Modules {
 
