@@ -1,0 +1,16 @@
+{
+        "module": {
+                "meta": {
+                        "adminLabel": {
+                                "desktop": { "value": "Divi TOC" }
+                        }
+                }
+        },
+        "content": {
+                "innerContent": {
+                        "body": {
+                                "desktop": { "value": "" }
+                        }
+                }
+        }
+}

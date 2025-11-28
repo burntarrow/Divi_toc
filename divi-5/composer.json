@@ -1,0 +1,9 @@
+{
+    "name": "divi/divi-toc",
+    "autoload": {
+        "psr-4": {
+            "DiviTOC\\Modules\\": "server/Modules/"
+        }
+    },
+    "require": {}
+}

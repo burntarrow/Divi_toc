@@ -19,6 +19,9 @@ define( 'DIVI_TOC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DIVI_TOC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'DIVI_TOC_VERSION', '1.0.2' );
 
+define( 'DIVI_TOC_MODULES_URL', DIVI_TOC_PLUGIN_URL . 'divi-5/visual-builder/src/modules' );
+define( 'DIVI_TOC_MODULES_PATH', DIVI_TOC_PLUGIN_DIR . 'divi-5/visual-builder/src/modules' );
+
 /**
  * Load plugin text domain.
  */
@@ -31,31 +34,7 @@ add_action( 'plugins_loaded', function () {
 } );
 
 /**
- * Load the Modules class directly (no Composer required).
- */
-require_once DIVI_TOC_PLUGIN_DIR . 'modules/Modules.php';
-
-/**
- * Register Divi 5 modules on init (PHP side).
- */
-add_action( 'init', function () {
-    if ( class_exists( '\Divi_toc\Modules\Modules' ) ) {
-        \Divi_toc\Modules\Modules::register();
-    }
-} );
-
-/**
- * Register this plugin as a Divi 5 Extension.
- * Divi 5 will read divi-toc-extension.php and load our JS + CSS.
- */
-add_filter( 'divi.modules.extensions', function ( $extensions ) {
-    $extensions['divi-toc'] = require __DIR__ . '/divi-toc-extension.php';
-    return $extensions;
-} );
-
-/**
  * Front-end assets (for smooth scroll behavior, etc.).
- * This is separate from the builder JS that Divi enqueues via the extension.
  */
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_script(
@@ -73,3 +52,6 @@ add_action( 'wp_enqueue_scripts', function () {
         DIVI_TOC_VERSION
     );
 } );
+
+// Load Divi 5 modules.
+require_once DIVI_TOC_PLUGIN_DIR . 'divi-5/divi5-toc.php';

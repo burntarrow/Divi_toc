@@ -1,0 +1,27 @@
+{
+        "name": "el/table-of-contents",
+        "d4Shortcode": "el_table_of_contents",
+        "title": "Divi TOC",
+        "titles": "Divi TOC",
+        "category": "module",
+        "moduleIcon": "divi/module-list",
+        "attributes": {
+                "module": {
+                        "type": "object",
+                        "selector": "{{selector}}",
+                        "default": {
+                                "meta": {
+                                        "adminLabel": {
+                                                "desktop": { "value": "Divi TOC" }
+                                        }
+                                }
+                        }
+                },
+                "content": {
+                        "type": "object",
+                        "selector": "{{selector}} .divi-toc-placeholder"
+                }
+        },
+        "style": [],
+        "script": []
+}
